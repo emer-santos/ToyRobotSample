@@ -12,13 +12,17 @@
 
 TEST_CASE("Tokenizer - PLACE")
 {
-    PlaceCommand cmd = tokenizer("PLACE 0,0,NORTH");
-    CHECK(0 == cmd.x);
-    CHECK(0 == cmd.y);
-    CHECK(Direction::North == cmd.direction);
+    {
+        PlaceCommand cmd = tokenizer("PLACE 0,0,NORTH");
+        CHECK(0 == cmd.x);
+        CHECK(0 == cmd.y);
+        CHECK(Direction::North == cmd.direction);
+    }
 
-    PlaceCommand cmd = tokenizer("PLACE 1,1,SOUTH");
-    CHECK(1 == cmd.x);
-    CHECK(1 == cmd.y);
-    CHECK(Direction::South == cmd.direction);
+    {
+        PlaceCommand cmd = tokenizer("PLACE 1,1,SOUTH");
+        CHECK(1 == cmd.x);
+        CHECK(1 == cmd.y);
+        CHECK(Direction::South == cmd.direction);
+    }
 }
