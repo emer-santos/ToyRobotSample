@@ -1,8 +1,11 @@
 #pragma once
 
+#include <optional>
 #include <tuple>
 
 #include "commands.h"
+
+using ToyRobotReport = std::tuple<int, int, Direction>;
 
 class ToyRobot
 {
@@ -24,6 +27,11 @@ public:
 
     bool moveForward()
     {
+        if(!isOnTable)
+        {
+            return false;
+        }
+
         switch(f)
         {
             case Direction::North:
@@ -74,8 +82,13 @@ public:
         return true;
     }
 
-    void rotateLeft()
+    bool rotateLeft()
     {
+        if(!isOnTable)
+        {
+            return false;
+        }
+
         switch(f)
         {
             case Direction::North:
@@ -94,10 +107,17 @@ public:
                 std::cout << "Unknown value" << std::endl;
                 break;
         }
+
+        return true;
     }
 
-    void rotateRight()
+    bool rotateRight()
     {
+        if(!isOnTable)
+        {
+            return false;
+        }
+        
         switch(f)
         {
             case Direction::North:
@@ -116,16 +136,23 @@ public:
                 std::cout << "Unknown value" << std::endl;
                 break;
         }
+
+        return true;
     }
 
-    std::tuple<int, int, Direction> report()
+    std::optional<ToyRobotReport> report() const
     {
-        return std::make_tuple(x, y, f);
+        if(!isOnTable)
+        {
+            return std::nullopt;
+        }
+
+        return ToyRobotReport(x, y, f);
     }
 
 private:
-    int x = 0;
-    int y = 0;
-    Direction f = Direction::North;
+    int x;
+    int y;
+    Direction f;
     bool isOnTable = false;
 };
