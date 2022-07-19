@@ -7,17 +7,71 @@
 class ToyRobot
 {
 public:
-    void place(const int _x, const int _y, const Direction _f)
+    bool place(const int posX, const int posY, const Direction face)
     {
-        x = _x;
-        y = _y;
-        f = _f;
-        isPlacedOnce = true;
+        if((posY > 4)||(posY < 0)||(posX > 4)||(posX < 0)) 
+        {
+            return false;
+        }
+
+        x = posX;
+        y = posY;
+        f = face;
+        isOnTable = true;
+
+        return true;
     }
 
-    void moveForward()
+    bool moveForward()
     {
-        y++;
+        switch(f)
+        {
+            case Direction::North:
+                if(y + 1 > 4)
+                {
+                    return false;
+                }
+                else
+                {
+                    y++;
+                }
+                break;
+            case Direction::East:
+                if(x + 1 > 4)
+                {
+                    return false;
+                }
+                else
+                {
+                    x++;
+                }
+                break;
+            case Direction::South:
+                if(y - 1 < 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    y--;
+                }
+                break;
+            case Direction::West:
+                if(x - 1 < 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    x--;
+                }
+                break;
+            default:
+                std::cout << "Unknown value" << std::endl;
+                break;
+        }
+
+        return true;
     }
 
     void rotateLeft()
@@ -73,5 +127,5 @@ private:
     int x = 0;
     int y = 0;
     Direction f = Direction::North;
-    bool isPlacedOnce = false;
+    bool isOnTable = false;
 };
