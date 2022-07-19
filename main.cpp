@@ -2,6 +2,7 @@
 #include "lib/doctest.h"
 #include "src/parseInputFile.h"
 #include "src/tokenizer.h"
+#include "src/ToyRobot.h"
 
 /* TEST_CASE("Input file to string") {
     const std::string actual = parseInputFile("./tst/input_place_move_report.txt");
@@ -25,4 +26,52 @@ TEST_CASE("Tokenizer - PLACE")
         CHECK(1 == cmd.y);
         CHECK(Direction::South == cmd.direction);
     }
+}
+
+TEST_CASE("Toy Robot - Move")
+{
+    ToyRobot robot;
+    robot.place(0,0,Direction::North);
+    CHECK(robot.report() == std::make_tuple(0,0,Direction::North));
+
+    robot.moveForward();
+    CHECK(robot.report() == std::make_tuple(0,1,Direction::North));
+}
+
+TEST_CASE("Toy Robot - RotateLeft")
+{
+    ToyRobot robot;
+    robot.place(0,0,Direction::North);
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::North));
+
+    robot.rotateLeft();
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::West));
+
+    robot.rotateLeft();
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::South));
+
+    robot.rotateLeft();
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::East));
+
+    robot.rotateLeft();
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::North));
+}
+
+TEST_CASE("Toy Robot - RotateRight")
+{
+    ToyRobot robot;
+    robot.place(0,0,Direction::North);
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::North));
+
+    robot.rotateRight();
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::East));
+
+    robot.rotateRight();
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::South));
+
+    robot.rotateRight();
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::West));
+
+    robot.rotateRight();
+    CHECK(robot.report() == std::make_tuple(0, 0, Direction::North));
 }
