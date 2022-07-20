@@ -10,21 +10,16 @@
     // CHECK(parseInputFile(".\tst\input_place_move_report.txt") == doctest::Contains("REPORT"));
 } */
 
+#include "tst/ToyRobot_tests.h"
+
+
 TEST_CASE("Tokenizer - PLACE")
 {
-    {
-        PlaceCommand cmd = tokenizer("PLACE 0,0,NORTH");
-        CHECK(0 == cmd.x);
-        CHECK(0 == cmd.y);
-        CHECK(Direction::North == cmd.direction);
-    }
+    PlaceCommand cmd = tokenizer("PLACE 0,0,NORTH");
+    ToyRobot robot;
 
-    {
-        PlaceCommand cmd = tokenizer("PLACE 1,1,SOUTH");
-        CHECK(1 == cmd.x);
-        CHECK(1 == cmd.y);
-        CHECK(Direction::South == cmd.direction);
-    }
+    CHECK(cmd.execute(robot) == true);
+    CHECK(robot.report().has_value() == true);
+    CHECK(robot.report().value() == std::make_tuple(0, 0, Direction::North));
 }
 
-#include "tst/ToyRobot_tests.h"
