@@ -1,5 +1,5 @@
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "lib/doctest.h"
 
-#include "tst/LineInterpreter_tests.h"
-#include "tst/ToyRobot_tests.h"
+int main(/*int argc, char *argv[]*/)
+{
+    return 0;
+}
