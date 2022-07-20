@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.4)
 project(cmake_test LANGUAGES CXX)
 
 if (MSVC)
@@ -9,7 +9,9 @@ else()
     add_compile_options(-Wall -Wextra -pedantic -Werror)
 endif()
 
-add_executable(test main.cpp src/ToyRobot.cpp src/Command.cpp)
+
+
+add_executable(test main.cpp src/ToyRobot.cpp src/Command.cpp src/Direction.cpp)
 target_include_directories(test INTERFACE lib/ src/ tst/)
 target_compile_features(test INTERFACE cxx_std_20)
 

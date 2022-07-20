@@ -1,5 +1,8 @@
 #pragma once
 
+#include <map>
+#include <string>
+
 enum class Direction
 {
     North = 8,
@@ -7,3 +10,6 @@ enum class Direction
     South = 2,
     West = 4
 };
+
+Direction convertStrToDirection(const std::string str);
+std::string convertDirectionToStr(const Direction face);
