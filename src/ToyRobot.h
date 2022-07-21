@@ -14,4 +14,12 @@ public:
 private:
     ToyRobotData data;
     bool isOnTable = false;
+
+    struct CoordinateLimits
+    {
+        const int lowerX = 0;
+        const int upperX = 4;
+        const int lowerY = 0;
+        const int upperY = 4;
+    } limits;
 };

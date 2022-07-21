@@ -9,24 +9,18 @@ TEST_CASE("Line Interpreter - Command")
     ToyRobot robot;
 
     CHECK(placeCmd->execute(robot) == true);
-
-    auto report = robot.report();
     CHECK(robot.report() == ToyRobotReport(2, 4, Direction::South));
 
     std::unique_ptr<BaseCommand> moveCmd = interpretCommandLine("MOVE");
     CHECK(moveCmd->execute(robot) == true);
-    
-    report = robot.report();
     CHECK(robot.report() == ToyRobotReport(2, 3, Direction::South));
 
     std::unique_ptr<BaseCommand> leftCmd = interpretCommandLine("LEFT");
     CHECK(leftCmd->execute(robot) == true);
-    report = robot.report();
     CHECK(robot.report() == ToyRobotReport(2, 3, Direction::East));
 
     std::unique_ptr<BaseCommand> rightCmd = interpretCommandLine("RIGHT");
     CHECK(rightCmd->execute(robot) == true);
-    report = robot.report();
     CHECK(robot.report() == ToyRobotReport(2, 3, Direction::South));
 }
 

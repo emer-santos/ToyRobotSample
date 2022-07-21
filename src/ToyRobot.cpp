@@ -4,7 +4,7 @@
 
 bool ToyRobot::place(const int posX, const int posY, const Direction face)
 {
-    if((posY > 4)||(posY < 0)||(posX > 4)||(posX < 0)) 
+    if((posY > limits.upperY)||(posY < limits.lowerY)||(posX > limits.upperX)||(posX < limits.lowerX)) 
     {
         return false;
     }
@@ -27,43 +27,35 @@ bool ToyRobot::moveForward()
     switch(data.f)
     {
         case Direction::North:
-            if(data.y + 1 > 4)
+            data.y++;
+            if(data.y > limits.upperY)
             {
+                data.y = limits.upperY;
                 return false;
-            }
-            else
-            {
-                data.y++;
             }
             break;
         case Direction::East:
-            if(data.x + 1 > 4)
+            data.x++;
+            if(data.x > limits.upperX)
             {
+                data.x = limits.upperX;
                 return false;
-            }
-            else
-            {
-                data.x++;
             }
             break;
         case Direction::South:
-            if(data.y - 1 < 0)
+            data.y--;
+            if(data.y < limits.lowerY)
             {
+                data.y = limits.lowerY;
                 return false;
-            }
-            else
-            {
-                data.y--;
             }
             break;
         case Direction::West:
-            if(data.x - 1 < 0)
+            data.x--;
+            if(data.x < limits.lowerX)
             {
+                data.x = limits.lowerX;
                 return false;
-            }
-            else
-            {
-                data.x--;
             }
             break;
         default:
