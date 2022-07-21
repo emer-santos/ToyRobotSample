@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
     if(argc < 2) 
     {
-        std::cout << "Wrong number of arguments" << std::endl;
+        std::cout << "Usage: run_app.exe <path\\to\\input\\file>" << std::endl;
         return -1;
     }
 
