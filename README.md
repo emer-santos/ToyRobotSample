@@ -1,4 +1,4 @@
-# ToyRobotSample
+# Toy Robot Sample
 Sample console program simulating a toy robot
 
 Tools used
