@@ -6,9 +6,8 @@
 
 std::unique_ptr<BaseCommand> CommandParser::convertStrToCmd(const std::string& str)
 {
-    //"(,|\\s+)"
     std::vector<std::string> tokens = tokenize(str, "\\s+");
-
+    // First token should be the command
     transformToUpperCase(tokens[0]);
 
     if("PLACE" == tokens[0])

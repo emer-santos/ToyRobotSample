@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    // The file path is on the second argument
     const auto contents = getInputFile(argv[1]);
 
     CommandParser parser;

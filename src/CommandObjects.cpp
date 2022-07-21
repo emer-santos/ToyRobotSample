@@ -10,14 +10,12 @@ bool NullCommand::execute(ToyRobot&) const
 }
 
 PlaceCommand::PlaceCommand(int posX, int posY, Direction face)
-:   x(posX),
-    y(posY),
-    f(face)
+:data(posX, posY, face)
 {}
 
 bool PlaceCommand::execute(ToyRobot& robot) const
 {
-    return robot.place(x, y, f);
+    return robot.place(data.x, data.y, data.f);
 }
 
 bool MoveCommand::execute(ToyRobot& robot) const

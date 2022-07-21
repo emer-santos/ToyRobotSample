@@ -39,7 +39,7 @@ std::string convertDirectionToStr(const Direction face)
             return "WEST";
             break;
         default:
-            return "";
+            return "Unknown";
             break;
     }
 }

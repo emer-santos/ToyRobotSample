@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Direction.h"
+#include "ToyRobotData.h"
 
 class ToyRobot;
 
@@ -24,9 +25,7 @@ public:
     bool execute(ToyRobot& robot) const override;
 
 private:
-    int x;
-    int y;
-    Direction f;
+    ToyRobotData data;
 };
 
 class MoveCommand : public BaseCommand
