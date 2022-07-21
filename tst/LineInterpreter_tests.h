@@ -1,8 +1,7 @@
-#include "../lib/doctest.h"
-#include "../src/LineInterpreter.h"
-#include "../src/ToyRobot.h"
+#include "lib/doctest.h"
 
-#include <memory>
+#include "LineInterpreter.h"
+#include "ToyRobot.h"
 
 TEST_CASE("Line Interpreter - Command")
 {

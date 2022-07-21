@@ -3,7 +3,6 @@
 #include <optional>
 #include <tuple>
 
-#include "Command.h"
 #include "Direction.h"
 
 using ToyRobotReport = std::tuple<int, int, Direction>;

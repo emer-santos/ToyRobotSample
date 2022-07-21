@@ -1,5 +1,7 @@
 #include "Direction.h"
 
+#include <map>
+
 Direction convertStrToDirection(const std::string str)
 {
     std::map<std::string, Direction> stringDirection = {

@@ -1,5 +1,6 @@
-#include "../lib/doctest.h"
-#include "../src/ToyRobot.h"
+#include "lib/doctest.h"
+
+#include "ToyRobot.h"
 
 TEST_CASE("Toy Robot - Move")
 {
