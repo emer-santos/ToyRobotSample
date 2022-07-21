@@ -23,7 +23,7 @@ std::vector<std::string> getInputFile(const std::string filePath)
     }
     else
     {
-        std::cout << "Cannot find input file" << std::endl;
+        std::cout << "Cannot open input file" << std::endl;
     }
     return contents;
 }

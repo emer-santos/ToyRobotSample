@@ -27,9 +27,6 @@ target_include_directories(${LIBSRC_NAME} INTERFACE ${CMAKE_SOURCE_DIR}/src/ )
 
 add_executable(${TESTAPP_NAME} test_main.cpp)
 target_link_libraries(${TESTAPP_NAME} PRIVATE ${LIBSRC_NAME})
-target_include_directories(${TESTAPP_NAME} INTERFACE ${CMAKE_SOURCE_DIR}/lib/ ${CMAKE_SOURCE_DIR}/src/ ${CMAKE_SOURCE_DIR}/tst/)
 
 add_executable(${APP_NAME} main.cpp)
 target_link_libraries(${APP_NAME} PRIVATE ${LIBSRC_NAME})
-target_include_directories(${APP_NAME} INTERFACE ${CMAKE_SOURCE_DIR}/src/)
-
