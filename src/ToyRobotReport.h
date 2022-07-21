@@ -1,11 +1,12 @@
 #pragma once
 
-#include "Direction.h"
+#include "ToyRobotData.h"
 
 class ToyRobotReport
 {
 public:
     ToyRobotReport();
+    ToyRobotReport(const ToyRobotData argData);
     ToyRobotReport(const int posX, const int posY, const Direction face);
     bool isValid() const;
     int getPosX() const;
@@ -14,7 +15,5 @@ public:
     bool operator==(const ToyRobotReport& rhs) const;
 
 private:
-    int x;
-    int y;
-    Direction f;
+    ToyRobotData data;
 };

@@ -1,40 +1,39 @@
 #include "ToyRobotReport.h"
 
-#include <tuple>
 
 ToyRobotReport::ToyRobotReport()
-:   x(-1),
-    y(-1),
-    f(Direction::Unknown)
+:data()
+{}
+
+ToyRobotReport::ToyRobotReport(const ToyRobotData argData)
+:data(argData)
 {}
 
 ToyRobotReport::ToyRobotReport(const int posX, const int posY, const Direction face)
-:   x(posX),
-    y(posY),
-    f(face)
+:data(posX, posY, face)
 {}
 
 bool ToyRobotReport::isValid() const
 {
-    return !((x < 0) || (y < 0) || (f == Direction::Unknown));
+    return data.isValid();
 }
 
 int ToyRobotReport::getPosX() const
 {
-    return x;
+    return data.x;
 }
 
 int ToyRobotReport::getPosY() const
 {
-    return y;
+    return data.y;
 }
 
 Direction ToyRobotReport::getDirection() const
 {
-    return f;
+    return data.f;
 }
 
 bool ToyRobotReport::operator==(const ToyRobotReport& rhs) const
 {
-    return (std::tie(x, y, f) == std::tie(rhs.x, rhs.y, rhs.f));
+    return data == rhs.data;
 }

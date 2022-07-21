@@ -19,6 +19,7 @@ set(TESTAPP_NAME "run_test")
 set(SRC_FILES 
     ${CMAKE_SOURCE_DIR}/src/ToyRobot.cpp
     ${CMAKE_SOURCE_DIR}/src/ToyRobotReport.cpp
+    ${CMAKE_SOURCE_DIR}/src/ToyRobotData.cpp
     ${CMAKE_SOURCE_DIR}/src/Command.cpp
     ${CMAKE_SOURCE_DIR}/src/Direction.cpp
 )

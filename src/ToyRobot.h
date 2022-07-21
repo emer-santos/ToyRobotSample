@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Direction.h"
 #include "ToyRobotReport.h"
 
 class ToyRobot
@@ -13,8 +12,6 @@ public:
     ToyRobotReport report() const;
 
 private:
-    int x = -1;
-    int y = -1;
-    Direction f = Direction::Unknown;
+    ToyRobotData data;
     bool isOnTable = false;
 };

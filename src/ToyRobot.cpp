@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-
-
 bool ToyRobot::place(const int posX, const int posY, const Direction face)
 {
     if((posY > 4)||(posY < 0)||(posX > 4)||(posX < 0)) 
@@ -11,9 +9,9 @@ bool ToyRobot::place(const int posX, const int posY, const Direction face)
         return false;
     }
 
-    x = posX;
-    y = posY;
-    f = face;
+    data.x = posX;
+    data.y = posY;
+    data.f = face;
     isOnTable = true;
 
     return true;
@@ -26,46 +24,46 @@ bool ToyRobot::moveForward()
         return false;
     }
 
-    switch(f)
+    switch(data.f)
     {
         case Direction::North:
-            if(y + 1 > 4)
+            if(data.y + 1 > 4)
             {
                 return false;
             }
             else
             {
-                y++;
+                data.y++;
             }
             break;
         case Direction::East:
-            if(x + 1 > 4)
+            if(data.x + 1 > 4)
             {
                 return false;
             }
             else
             {
-                x++;
+                data.x++;
             }
             break;
         case Direction::South:
-            if(y - 1 < 0)
+            if(data.y - 1 < 0)
             {
                 return false;
             }
             else
             {
-                y--;
+                data.y--;
             }
             break;
         case Direction::West:
-            if(x - 1 < 0)
+            if(data.x - 1 < 0)
             {
                 return false;
             }
             else
             {
-                x--;
+                data.x--;
             }
             break;
         default:
@@ -83,19 +81,19 @@ bool ToyRobot::rotateLeft()
         return false;
     }
 
-    switch(f)
+    switch(data.f)
     {
         case Direction::North:
-            f = Direction::West;
+            data.f = Direction::West;
             break;
         case Direction::West:
-            f = Direction::South;
+            data.f = Direction::South;
             break;
         case Direction::South:
-            f = Direction::East;
+            data.f = Direction::East;
             break;
         case Direction::East:
-            f = Direction::North;
+            data.f = Direction::North;
             break;
         default:
             std::cout << "Unknown value" << std::endl;
@@ -112,19 +110,19 @@ bool ToyRobot::rotateRight()
         return false;
     }
     
-    switch(f)
+    switch(data.f)
     {
         case Direction::North:
-            f = Direction::East;
+            data.f = Direction::East;
             break;
         case Direction::West:
-            f = Direction::North;
+            data.f = Direction::North;
             break;
         case Direction::South:
-            f = Direction::West;
+            data.f = Direction::West;
             break;
         case Direction::East:
-            f = Direction::South;
+            data.f = Direction::South;
             break;
         default:
             std::cout << "Unknown value" << std::endl;
@@ -141,5 +139,5 @@ ToyRobotReport ToyRobot::report() const
         return ToyRobotReport();
     }
 
-    return ToyRobotReport(x, y, f);
+    return ToyRobotReport(data);
 }
