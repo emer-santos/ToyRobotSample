@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+
+
 bool ToyRobot::place(const int posX, const int posY, const Direction face)
 {
     if((posY > 4)||(posY < 0)||(posX > 4)||(posX < 0)) 
@@ -132,12 +134,12 @@ bool ToyRobot::rotateRight()
     return true;
 }
 
-ToyRobotData ToyRobot::report() const
+ToyRobotReport ToyRobot::report() const
 {
     if(!isOnTable)
     {
-        return ToyRobotData();
+        return ToyRobotReport();
     }
 
-    return ToyRobotData(x, y, f);
+    return ToyRobotReport(x, y, f);
 }
