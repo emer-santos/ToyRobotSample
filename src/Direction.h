@@ -7,7 +7,8 @@ enum class Direction
     North = 8,
     East = 6,
     South = 2,
-    West = 4
+    West = 4,
+    Unknown = -1
 };
 
 Direction convertStrToDirection(const std::string str);

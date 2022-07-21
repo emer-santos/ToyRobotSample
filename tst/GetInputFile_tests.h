@@ -1,4 +1,3 @@
-
 #include "lib/doctest.h"
 
 #include "GetInputFile.h"

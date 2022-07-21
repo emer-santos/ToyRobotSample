@@ -1,11 +1,11 @@
 #pragma once
 
+#include "Command.h"
+
 #include <memory>
 #include <regex>
 #include <string>
 #include <vector>
-
-#include "Command.h"
 
 std::unique_ptr<BaseCommand> interpretCommandLine(const std::string str)
 {

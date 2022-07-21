@@ -132,12 +132,12 @@ bool ToyRobot::rotateRight()
     return true;
 }
 
-std::optional<ToyRobotReport> ToyRobot::report() const
+ToyRobotData ToyRobot::report() const
 {
     if(!isOnTable)
     {
-        return std::nullopt;
+        return ToyRobotData();
     }
 
-    return ToyRobotReport(x, y, f);
+    return ToyRobotData(x, y, f);
 }

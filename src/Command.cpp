@@ -37,11 +37,12 @@ bool RightCommand::execute(ToyRobot& robot) const
 
 bool ReportCommand::execute(ToyRobot& robot) const
 {
-    const std::optional<ToyRobotReport> result = robot.report();
+    ToyRobotData result = robot.report();
 
-    if(result)
+    if(result.isValid())
     {
-        std::cout << std::get<0>(result.value()) << "," << std::get<1>(result.value()) << ","<< convertDirectionToStr(std::get<2>(result.value())) << std::endl;
+        std::cout << result.x << "," << result.y << ","<< convertDirectionToStr(result.f) << std::endl;
+        return true;
     }
-    return result.has_value();
+    return false;
 }
