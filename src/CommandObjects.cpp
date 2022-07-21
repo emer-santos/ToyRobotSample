@@ -1,4 +1,4 @@
-#include "Command.h"
+#include "CommandObjects.h"
 #include "ToyRobot.h"
 
 #include <iostream>
@@ -6,7 +6,7 @@
 bool NullCommand::execute(ToyRobot&) const
 {
     std::cout << "Disregarding unknown command" << std::endl;
-    return true;
+    return false;
 }
 
 PlaceCommand::PlaceCommand(int posX, int posY, Direction face)

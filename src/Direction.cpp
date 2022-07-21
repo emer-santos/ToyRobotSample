@@ -2,7 +2,7 @@
 
 #include <map>
 
-Direction convertStrToDirection(const std::string str)
+Direction convertStrToDirection(const std::string& str)
 {
     std::map<std::string, Direction> stringDirection = {
             {"NORTH", Direction::North},
@@ -18,7 +18,7 @@ Direction convertStrToDirection(const std::string str)
     }
     else 
     {
-        return Direction::North;
+        return Direction::Unknown;
     }
 }
 

@@ -1,8 +1,8 @@
 #include <iostream>
 
 #include "GetInputFile.h"
-#include "LineInterpreter.h"
-#include "Command.h"
+#include "CommandObjects.h"
+#include "CommandParser.h"
 #include "ToyRobot.h"
 
 int main(int argc, char *argv[])
@@ -15,10 +15,11 @@ int main(int argc, char *argv[])
 
     const auto contents = getInputFile(argv[1]);
 
+    CommandParser parser;
     ToyRobot robot;
     for(auto line : contents)
     {
-        auto cmd = interpretCommandLine(line);
+        auto cmd = parser.convertStrToCmd(line);
         cmd->execute(robot);
     }
 

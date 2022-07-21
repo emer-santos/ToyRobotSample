@@ -11,5 +11,5 @@ enum class Direction
     Unknown = -1
 };
 
-Direction convertStrToDirection(const std::string str);
+Direction convertStrToDirection(const std::string& str);
 std::string convertDirectionToStr(const Direction face);

@@ -20,8 +20,9 @@ set(SRC_FILES
     ${CMAKE_SOURCE_DIR}/src/ToyRobot.cpp
     ${CMAKE_SOURCE_DIR}/src/ToyRobotReport.cpp
     ${CMAKE_SOURCE_DIR}/src/ToyRobotData.cpp
-    ${CMAKE_SOURCE_DIR}/src/Command.cpp
+    ${CMAKE_SOURCE_DIR}/src/CommandObjects.cpp
     ${CMAKE_SOURCE_DIR}/src/Direction.cpp
+    ${CMAKE_SOURCE_DIR}/src/CommandParser.cpp
 )
 
 add_library(${LIBSRC_NAME} ${SRC_FILES})

@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> getInputFile(const std::string filePath)
+std::vector<std::string> getInputFile(const std::string& filePath)
 {
     std::vector<std::string> contents;
     std::ifstream inputFile;
