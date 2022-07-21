@@ -36,7 +36,7 @@ How to build the application
 1. On Visual Studio Code, go to File > Open Folder, navigate and select the topmost directory of the source code (with the CMakeLists.txt file)
 2. Go to Terminal > New Terminal, run `cmake -S . -B bin -G "MinGW Makefiles"`
 3. Run `cmake --build .\bin\` to generate the executable files
-3.a Run `.\bin\run_tests.exe` to run the unit tests
-3.b Run `.\bin\run_app.exe <path\to\input\file>` to run the application. Sample input files are located in _tst\input_samples_
+    - Run `.\bin\run_tests.exe` to run the unit tests
+    - Run `.\bin\run_app.exe <path\to\input\file>` to run the application. Sample input files are located in _tst\input_samples_
 
 
