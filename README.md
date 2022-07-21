@@ -39,4 +39,10 @@ How to build the application
     - Run `.\bin\run_tests.exe` to run the unit tests
     - Run `.\bin\run_app.exe <path\to\input\file>` to run the application. Sample input files are located in _tst\input_samples_
 
+Folder structure
+-------------
+- \lib - contains 3rd party libraries. Only doctest should be here.
+- \src - contains the source code
+- \tst - contains the test cases
+- \tst\input_samples - contains sample inputs used for testing
 
